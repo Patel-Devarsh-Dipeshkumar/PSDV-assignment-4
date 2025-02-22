@@ -206,7 +206,7 @@ Sympy could be installed with the help of pip which is Python Package Manager
 </h4>
 <p><br></p>
 <p style="font-weight: 400; line-height: 1.6; color: #333333;">
-<strong style="font-size: 20px;">1. Install Using pip</strong><br><br> <!-- Increased font size and added spacing --> Open a terminal or command prompt and run: <code>pip install sympy</code>
+<strong style="font-size: 20px;">1. Install Using pip</strong><br> <!-- Increased font size and added spacing --> Open a terminal or command prompt and run: <code>pip install sympy</code>
 </p>
 <div id="c2a4e7a2-e131-41a4-a9bd-434f6209b285" class="cell" data-outputid="cde29587-44e3-4d8b-b58f-83e3b7948f89" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pip install sympy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -222,7 +222,7 @@ Note: you may need to restart the kernel to use updated packages.</code></pre>
 </div>
 </div>
 <p style="font-weight: 400; line-height: 1.6; color: #333333;">
-<strong style="font-size: 20px;">2. Verify Installation</strong><br><br> <!-- Increased font size and added spacing --> After installation, open Python and type
+<strong style="font-size: 20px;">2. Verify Installation</strong><br> <!-- Increased font size and added spacing --> After installation, open Python and type
 </p>
 <div id="92ac74e1-6eee-49fd-9187-fd4a646926c5" class="cell" data-outputid="f0d4604e-cf60-4c35-9edf-697eb3d24a15" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy</span>
@@ -231,6 +231,7 @@ Note: you may need to restart the kernel to use updated packages.</code></pre>
 <pre><code>1.13.3</code></pre>
 </div>
 </div>
+<br>
 <center>
 <h3 style="font-size: 23px;" class="anchored">
 Topic 1:- Partition
@@ -744,6 +745,109 @@ Cyclic Decomposition: [[0, 2, 1], [3, 4, 5]]</code></pre>
 </div>
 </div>
 <p>This permutation consists of two disjoint cycles: one cycling elements 0, 2, and 1; the other cycling elements 3, 4, and 5.</p>
+<center>
+<h3 style="font-size: 23px;" class="anchored">
+Topic 5:- Permutation Groups
+</h3>
+</center>
+<div style="font-size: 18px;">
+<pre><code>In SymPy, a permutation group is a collection of permutations (rearrangements) that follow group properties. It is represented using the PermutationGroup class in sympy.combinatorics.</code></pre>
+</div>
+<div style="font-size: 18px;">
+<pre><code>How to create Permutation Group in SymPy?</code></pre>
+</div>
+<div style="font-size: 18px;">
+<pre><code>So first step is to create permuations: A permutation is represented as a list where indices represent elements, and values represent their new positions after permutation</code></pre>
+</div>
+<div id="304042f8" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy.combinatorics <span class="im">import</span> Permutation, PermutationGroup</span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Defining permutations</span></span>
+<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a>p1 <span class="op">=</span> Permutation([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">0</span>]) <span class="co"># -&gt; (0 1 2)</span></span>
+<span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a>p2 <span class="op">=</span> Permutation([<span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">1</span>]) <span class="co"># -&gt; (0 2 1)</span></span>
+<span id="cb60-6"><a href="#cb60-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-7"><a href="#cb60-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a group</span></span>
+<span id="cb60-8"><a href="#cb60-8" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> PermutationGroup([p1, p2])</span>
+<span id="cb60-9"><a href="#cb60-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-10"><a href="#cb60-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Permutation Group:"</span>, G)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Permutation Group: PermutationGroup([
+    (0 1 2),
+    (0 2 1)])</code></pre>
+</div>
+</div>
+<p>A permutation group consists of multiple permutations as shown above.</p>
+<!-- Title -->
+<br>
+<h4 style="font-weight: bold; line-height: 1.6; font-size: 20px; margin-top: 0; margin-bottom: 0;" class="anchored">
+Properties of Permutation Group
+</h4>
+<!-- Body Text -->
+<h4 style="font-weight: bold; line-height: 1.6; font-size: 18px; margin-top: 0; margin-bottom: 0;" class="anchored">
+<br> 1. Identity of a group
+</h4>
+<br>
+<p style="font-weight: 400; line-height: 1.6; font-size: 18x; margin-top: 0; margin-bottom: 0;">
+Every group must have an identity element that does nothing.
+</p>
+<div id="65602379" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Identity Element of the Group:"</span>, G.identity)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Identity Element of the Group: (2)</code></pre>
+</div>
+</div>
+<div style="font-size: 18px;">
+<pre><code>This confirms that [0, 1, 2] is the identity permutation.</code></pre>
+</div>
+<!-- Body Text -->
+<h4 style="font-weight: bold; line-height: 1.6; font-size: 18px; margin-top: 0; margin-bottom: 0;" class="anchored">
+<br> 2. Order of the group
+</h4>
+<br>
+<p style="font-weight: 400; line-height: 1.6; font-size: 18x; margin-top: 0; margin-bottom: 0;">
+The order of a group is the total number of distinct elements it contains.
+</p>
+<div id="33471f93" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Order of the Group:"</span>, G.order())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Order of the Group: 3</code></pre>
+</div>
+</div>
+<div style="font-size: 18px;">
+<pre><code>The group has 3 unique permutations, thus the order is 3.</code></pre>
+</div>
+<!-- Body Text -->
+<h4 style="font-weight: bold; line-height: 1.6; font-size: 18px; margin-top: 0; margin-bottom: 0;" class="anchored">
+<br> 3. Finding group elements
+</h4>
+<br>
+<p style="font-weight: 400; line-height: 1.6; font-size: 18x; margin-top: 0; margin-bottom: 0;">
+The .generate() method lists all permutations in the group.
+</p>
+<div id="407f5179" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Elements of the Group:"</span>, <span class="bu">list</span>(G.generate()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Elements of the Group: [Permutation(2), Permutation(0, 1, 2), Permutation(0, 2, 1)]</code></pre>
+</div>
+</div>
+<div style="font-size: 18px;">
+<pre><code>It suggests that the group consists of three distinct permutations.</code></pre>
+</div>
+<!-- Body Text -->
+<h4 style="font-weight: bold; line-height: 1.6; font-size: 18px; margin-top: 0; margin-bottom: 0;" class="anchored">
+<br> 4. Permutation Check
+</h4>
+<br>
+<p style="font-weight: 400; line-height: 1.6; font-size: 18x; margin-top: 0; margin-bottom: 0;">
+Checking If a Permutation is in the Group
+</p>
+<div id="38368933" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>p_test <span class="op">=</span> Permutation([<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">0</span>])  </span>
+<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Is p_test in the Group?"</span>, p_test <span class="kw">in</span> G)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Is p_test in the Group? False</code></pre>
+</div>
+</div>
 
 
 
