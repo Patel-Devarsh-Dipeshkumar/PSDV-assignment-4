@@ -1,1 +1,1 @@
-Sitemap: https://nipunbatra.github.io/quarto-template/sitemap.xml
+Sitemap: https://Patel-Devarsh-Dipeshkumar.github.io/PSDV-assignment-4/sitemap.xml
