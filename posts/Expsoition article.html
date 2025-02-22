@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.41">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Patel Devarsh Dipeshkumar">
+<meta name="dcterms.date" content="2025-02-22">
+
+<title>Sympy Combinatorics – Quato try 1</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-49927ad6ac989989b068a441603fbd97.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-7cfa380d139a4d61a924487b0af32b39.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Quato try 1</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../blog.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Sympy Combinatorics</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">ML</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Patel Devarsh Dipeshkumar </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 22, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<h1>
+<center>
+Sympy Combinatorics
+</center></h1>
+
+<h4 style="font-weight: 400; line-height: 1.6;" class="anchored">
+SymPy is an open-source Python library for symbolic mathematics. It allows users to perform algebraic computations, solve equations, manipulate expressions, and work with calculus, linear algebra, and more.
+</h4>
+<center>
+<h4 style="font-size: 21px;" class="anchored">
+Introduction to SymPy Combinatorics
+</h4>
+</center>
+<h4 style="font-weight: 400; line-height: 1.6;" class="anchored">
+SymPy’s Combinatorics module provides tools for working with partitions, permutations, and other discrete structures in mathematics. It is useful in combinatorial problems, group theory, and counting principles.
+</h4>
+<center>
+<h4 style="font-size: 21px;" class="anchored">
+Installation Steps
+</h4>
+</center>
+<h4 style="font-weight: 400; line-height: 1.6;" class="anchored">
+Sympy could be installed with the help of pip which is Python Package Manager
+</h4>
+<p style="font-weight: 400; line-height: 1.6; color: #333333;">
+<strong style="font-size: 20px;">1. Install Using pip</strong><br><br> <!-- Increased font size and added spacing --> Open a terminal or command prompt and run: <code>pip install sympy</code>
+</p>
+<div id="c2a4e7a2-e131-41a4-a9bd-434f6209b285" class="cell" data-outputid="cde29587-44e3-4d8b-b58f-83e3b7948f89" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pip install sympy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Requirement already satisfied: sympy in c:\users\hp\appdata\local\programs\python\python312\lib\site-packages (1.13.3)
+Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in c:\users\hp\appdata\local\programs\python\python312\lib\site-packages (from sympy) (1.3.0)
+Note: you may need to restart the kernel to use updated packages.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+[notice] A new release of pip is available: 24.0 -&gt; 25.0.1
+[notice] To update, run: python.exe -m pip install --upgrade pip</code></pre>
+</div>
+</div>
+<p style="font-weight: 400; line-height: 1.6; color: #333333;">
+<strong style="font-size: 20px;">2. Verify Installation</strong><br><br> <!-- Increased font size and added spacing --> After installation, open Python and type
+</p>
+<div id="92ac74e1-6eee-49fd-9187-fd4a646926c5" class="cell" data-outputid="f0d4604e-cf60-4c35-9edf-697eb3d24a15" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sympy.__version__)  <span class="co"># It should print the installed SymPy version</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1.13.3</code></pre>
+</div>
+</div>
+<center>
+<h4 style="font-size: 21px;" class="anchored">
+Topic 1:- Partition
+</h4>
+</center>
+<h4 style="font-weight: 400; line-height: 1.6;" class="anchored">
+In simple words, a partition is a set of disjoint sets whose union equals a given set.
+</h4>
+<h4 style="font-weight: 400; line-height: 1.6; font-size: 15px;" class="anchored">
+Problem 1) Imagine a teacher has 6 students: {1, 2, 3, 4, 5, 6} and wants to divide them into study groups based on their subject preferences. Each student belongs to exactly one group.<br><br> Group 0 (Math Lovers) → {1, 2, 3};<br> Group 1 (Science Enthusiasts) → {4, 5};<br> Group 2 (History Buffs) → {6}
+</h4>
+<h4 style="font-weight: 400; line-height: 1.6; font-size: 15px; margin-top: 0; margin-bottom: 0;" class="anchored">
+We can solve this problem easily by using “Partitions”. So for that first of all we need to learn some basic properties.
+</h4>
+<!-- Title -->
+<br>
+<h4 style="font-weight: 400; line-height: 1.6; font-size: 20px; margin-top: 0; margin-bottom: 0;" class="anchored">
+Properties of Partition
+</h4>
+<!-- Body Text -->
+<h4 style="font-weight: 400; line-height: 1.6; font-size: 18px; margin-top: 0; margin-bottom: 0;" class="anchored">
+<br> 1. RGS
+</h4>
+<br>
+<p style="font-weight: 400; line-height: 1.6; font-size: 14px; margin-top: 0; margin-bottom: 0;">
+It returns the “restricted growth string” of the partition. <br> Explanation - The RGS is given as a list of numbers, L, where each number L[i] tells you which indices the i-th element belongs to.
+</p>
+<p><br></p>
+<div id="508ec47d-0991-4ea0-b694-790ba06315cf" class="cell" data-outputid="2b00d1c4-9f4f-4c3d-cbd3-3e6812637978" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy.combinatorics <span class="im">import</span> Partition              <span class="co">#Importing the Partition class from the sympy.combinatorics module.</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>Example_RGS <span class="op">=</span> Partition([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">8</span>,<span class="dv">9</span>],[<span class="dv">4</span>,<span class="dv">5</span>],[<span class="dv">6</span>],[<span class="dv">7</span>])   <span class="co">#Defining a partition of a set containing the elements {1,2,3,4,5,6,7,8,9}.</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(Example_RGS.members)                             <span class="co">#Here ".members" returns a tuple of elements in sorted order.</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(Example_RGS.RGS)                                 <span class="co">#.RGS returns a tuple of indices, where each index tells us which block the corresponding element belongs to</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(1, 2, 3, 4, 5, 6, 7, 8, 9)
+(0, 0, 0, 1, 1, 2, 3, 4, 4)</code></pre>
+</div>
+</div>
+<p>Now we can easily answer the ‘Q1)’ by using this property.</p>
+<div id="34e56fac-1f27-4d84-800c-c082049debaf" class="cell" data-outputid="4f02b6bc-4fd4-44e7-d3c3-1b145026b0e1" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>study_groups <span class="op">=</span> Partition([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>], [<span class="dv">6</span>])</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Partition:"</span>, study_groups.partition)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"RGS Representation:"</span>, study_groups.RGS)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Partition: [[1, 2, 3], [4, 5], [6]]
+RGS Representation: (0, 0, 0, 1, 1, 2)</code></pre>
+</div>
+</div>
+<p>From the Output we can conclude that Students {1,2,3} are in group 0. Students {4,5} are in group 1. Student {6} is in group 2.</p>
+<!-- Body Text -->
+<h4 style="font-weight: 400; line-height: 1.6; font-size: 18px; margin-top: 0; margin-bottom: 0;" class="anchored">
+<br> 2. Partition
+</h4>
+<br>
+<p style="font-weight: 400; line-height: 1.6; font-size: 14px; margin-top: 0; margin-bottom: 0;">
+It returns partition as a sorted list of lists.
+</p>
+<p>Explanation - A Partition in SymPy divides a set into disjoint, non-empty subsets (blocks) whose union equals the original set. The <em>.partition</em> attribute returns these blocks as a list of lists, representing the partition structure.</p>
+<div id="1ca11f38-077f-4217-98b3-362c8ccd1e25" class="cell" data-outputid="76475f68-c9a5-4db2-8f7f-35d76ae474aa" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy.combinatorics <span class="im">import</span> Partition</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>Example_Partition <span class="op">=</span> Partition([<span class="dv">4</span>], [<span class="dv">2</span>, <span class="dv">5</span>]).partition</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(Example_Partition)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[2, 5], [4]]</code></pre>
+</div>
+</div>
+<!-- Body Text -->
+<h4 style="font-weight: 400; line-height: 1.6; font-size: 18px; margin-top: 0; margin-bottom: 0;" class="anchored">
+<br> 3. Rank
+</h4>
+<br>
+<p style="font-weight: 400; line-height: 1.6; font-size: 14px; margin-top: 0; margin-bottom: 0;">
+It gets the rank of a partition.
+</p>
+<p>Explanation - The <em>.rank</em> attribute of a Partition in SymPy gives a unique integer representing the partition’s position in the lexicographic ordering of all partitions of the same set.</p>
+<div id="8d31a00b-9b0a-4897-b120-603f80e2fd89" class="cell" data-outputid="69a76206-721a-4335-ee73-05fc62119d61" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy.combinatorics <span class="im">import</span> Partition</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>Example_Rank <span class="op">=</span> Partition([<span class="dv">1</span>, <span class="dv">2</span>], [<span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>])</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(Example_Rank.rank)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>13</code></pre>
+</div>
+</div>
+<!-- Body Text -->
+<h4 style="font-weight: 400; line-height: 1.6; font-size: 18px; margin-top: 0; margin-bottom: 0;" class="anchored">
+<br> 4. Conjugate
+</h4>
+<br>
+<p style="font-weight: 400; line-height: 1.6; font-size: 14px; margin-top: 0; margin-bottom: 0;">
+It computes the conjugate partition of itself.
+</p>
+<p>Explanation - In SymPy, the <em>.conjugate</em> of an IntegerPartition interchange the rows and columns in its Ferrers diagram representation, transforming the partition into another valid partition.</p>
+<div id="f64ef262-3bfc-4e5c-a0ad-1fbcdff999b6" class="cell" data-outputid="5b46f089-6003-4709-da33-7645f884e0ea" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy.combinatorics.partitions <span class="im">import</span> IntegerPartition</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>Example_Conjugate <span class="op">=</span> IntegerPartition([<span class="dv">6</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>])</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(Example_Conjugate.conjugate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[5, 4, 3, 1, 1, 1]</code></pre>
+</div>
+</div>
+<center>
+<h4 style="font-size: 21px;" class="anchored">
+Topic 2:- Subsets
+</h4>
+</center>
+<h4 style="font-weight: 400; line-height: 1.6;" class="anchored">
+In simple words, it represents a basic subset object.
+</h4>
+<p>Explanation - There are two main ways to create subsets: <strong>binary enumeration</strong> and <strong>lexicographic enumeration</strong>. In SymPy, the <em>Subset</em> class needs two inputs: the first is the subset we start with, and the second is the larger set it comes from.</p>
+<p>Some basic Examples of Subset</p>
+<div id="c58404f6-bf46-4568-bb0b-c62aa1809715" class="cell" data-outputid="5d492b44-0f23-4277-f925-226ff75a4d29" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy.combinatorics <span class="im">import</span> Subset</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> Subset([<span class="st">'c'</span>, <span class="st">'d'</span>], [<span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'c'</span>, <span class="st">'d'</span>])</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a.next_binary().subset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>['b']</code></pre>
+</div>
+</div>
+<h5 class="anchored">
+Let’s take a practical example.
+</h5>
+<p>Imagine a smart home system with 4 devices that can be turned ON or OFF:</p>
+<ol type="1">
+<li>Lights (‘L’)</li>
+<li>Fan (‘F’)</li>
+<li>TV (‘T’)</li>
+<li>AC (‘A’)</li>
+</ol>
+<p>A subset of these devices represents the currently active (ON) devices.</p>
+<p>Now the problem is that we need to track which devices are ON at any moment and the system wants to automatically switch to the next possible combination of ON devices.</p>
+<div id="70c38d40-a088-4fa7-a523-47fdefe82312" class="cell" data-outputid="8d54e29e-11d5-4633-a502-7c9f35a6136e" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy.combinatorics <span class="im">import</span> Subset</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>all_devices <span class="op">=</span> [<span class="st">'L'</span>, <span class="st">'F'</span>, <span class="st">'T'</span>, <span class="st">'A'</span>]                   <span class="co">#First of all defining the all devices in a list in short form for ease.</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>current_on_devices <span class="op">=</span> Subset([<span class="st">'T'</span>, <span class="st">'A'</span>], all_devices)   <span class="co"># Define the initial subset (devices that are ON)</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>next_on_devices <span class="op">=</span> current_on_devices.next_binary().subset   <span class="co"># Get the next possible subset in binary order (next device combination)</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"All Devices:"</span>, all_devices)</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Currently ON Devices:"</span>, current_on_devices.subset)</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Next ON Device Combination:"</span>, next_on_devices)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>All Devices: ['L', 'F', 'T', 'A']
+Currently ON Devices: ['T', 'A']
+Next ON Device Combination: ['F']</code></pre>
+</div>
+</div>
+<p>So this algorithm helps us to find the Devices which are currently ON and also gives the knowledge about the next device which is ON</p>
+<!-- Title -->
+<br>
+<h4 style="font-weight: 400; line-height: 1.6; font-size: 20px; margin-top: 0; margin-bottom: 0;" class="anchored">
+Properties of Subsets
+</h4>
+<!-- Body Text -->
+<h4 style="font-weight: 400; line-height: 1.6; font-size: 18px; margin-top: 0; margin-bottom: 0;" class="anchored">
+<br> 1. Cardinality
+</h4>
+<br>
+<p style="font-weight: 400; line-height: 1.6; font-size: 14px; margin-top: 0; margin-bottom: 0;">
+It returns the number of all possible subsets.
+</p>
+<p>Explanation - The <em>.cardinality</em> property in SymPy returns the <strong>total number of possible subsets</strong> of a given set. Since a set with <strong>n elements</strong> has <strong>(2^n) subsets</strong>, this property calculates and returns that value.</p>
+<div id="5cc7a39a-7da1-452e-a771-7657189c55dd" class="cell" data-outputid="fde0d6cc-b522-43b9-878e-ee0f089a8406" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy.combinatorics <span class="im">import</span> Subset</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>Example_Cardinality <span class="op">=</span> Subset([<span class="st">'c'</span>, <span class="st">'d'</span>], [<span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'c'</span>, <span class="st">'d'</span>])</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(Example_Cardinality.cardinality)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>16</code></pre>
+</div>
+</div>
+<!-- Body Text -->
+<h4 style="font-weight: 400; line-height: 1.6; font-size: 18px; margin-top: 0; margin-bottom: 0;" class="anchored">
+<br> 2. Subset
+</h4>
+<br>
+<p style="font-weight: 400; line-height: 1.6; font-size: 14px; margin-top: 0; margin-bottom: 0;">
+It gets the subset represented by the current instance.
+</p>
+<p>The <em>.subset</em> property in SymPy returns the <strong>current subset</strong> being considered. It simply gives the list of elements that form the subset within the given superset.</p>
+<div id="23181b7f-a662-4a38-9fbd-da4065372251" class="cell" data-outputid="88310320-6f3a-480a-fa84-b4b199b03771" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy.combinatorics <span class="im">import</span> Subset</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>Example_Subset <span class="op">=</span> Subset([<span class="st">'c'</span>, <span class="st">'d'</span>], [<span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'c'</span>, <span class="st">'d'</span>])</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(Example_Subset.subset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>['c', 'd']</code></pre>
+</div>
+</div>
+<!-- Body Text -->
+<h4 style="font-weight: 400; line-height: 1.6; font-size: 18px; margin-top: 0; margin-bottom: 0;" class="anchored">
+<br> 3. Superset
+</h4>
+<br>
+<p style="font-weight: 400; line-height: 1.6; font-size: 14px; margin-top: 0; margin-bottom: 0;">
+It gets the superset of the subset.
+</p>
+<p>Explanation - The <em>.superset</em> property in SymPy returns the <strong>original (universal) set</strong> from which subsets are created. It shows the complete set that contains all possible elements for forming subsets.</p>
+<div id="c0849dc6-8e1e-45d7-a3a8-3225c5f0f4db" class="cell" data-outputid="6194a3a4-cbc0-4ebe-ef2f-adc44ed34958" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy.combinatorics <span class="im">import</span> Subset</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>Example_Superset <span class="op">=</span> Subset([<span class="st">'c'</span>, <span class="st">'d'</span>], [<span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'c'</span>, <span class="st">'d'</span>])</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(Example_Superset.superset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>['a', 'b', 'c', 'd']</code></pre>
+</div>
+</div>
+<!-- Body Text -->
+<h4 style="font-weight: 400; line-height: 1.6; font-size: 18px; margin-top: 0; margin-bottom: 0;" class="anchored">
+<br> 4. Size
+</h4>
+<br>
+<p style="font-weight: 400; line-height: 1.6; font-size: 14px; margin-top: 0; margin-bottom: 0;">
+It gets the size of the subset.
+</p>
+<p>Explanation - The <em>.size</em> property in SymPy returns the <strong>number of elements in the current subset</strong>. It simply counts how many elements are present in the subset.</p>
+<div id="ff113bd5-35de-490a-b537-d0a6323920ff" class="cell" data-outputid="912e6c89-c58d-4dc2-aebf-293964b2c314" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy.combinatorics <span class="im">import</span> Subset</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>Example_Size <span class="op">=</span> Subset([<span class="st">'a'</span>, <span class="st">'c'</span>, <span class="st">'d'</span>], [<span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'c'</span>, <span class="st">'d'</span>])</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(Example_Size.size)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>3</code></pre>
+</div>
+</div>
+<!-- Body Text -->
+<h4 style="font-weight: 400; line-height: 1.6; font-size: 18px; margin-top: 0; margin-bottom: 0;" class="anchored">
+<br> 5. Superset Size
+</h4>
+<br>
+<p style="font-weight: 400; line-height: 1.6; font-size: 14px; margin-top: 0; margin-bottom: 0;">
+It returns the size of the superset.
+</p>
+<p>Explanation - The <em>.superset_size</em> property in SymPy returns the <strong>number of elements in the superset</strong>. It simply gives the total count of elements in the original (universal) set from which subsets are formed.</p>
+<div id="17a3570f-e401-43ad-838a-28525cdb5aea" class="cell" data-outputid="eb041317-22f7-4dbb-ac13-bfc16b0e1d53" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy.combinatorics <span class="im">import</span> Subset</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>Example_Superset_size <span class="op">=</span> Subset([<span class="st">'c'</span>, <span class="st">'d'</span>], [<span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'c'</span>, <span class="st">'d'</span>])</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(Example_Superset_size.superset_size)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>4</code></pre>
+</div>
+</div>
+<center>
+<h4 style="font-size: 21px;" class="anchored">
+Topic 3:- Gray Code
+</h4>
+</center>
+<h4 style="font-weight: 400; line-height: 1.6;" class="anchored">
+A Gray code is a way of listing all possible subsets of a set so that each new subset differs from the previous one by adding or removing just one element. This helps in efficient subset generation and has applications in computing and statistics.
+</h4>
+<!-- Title -->
+<br>
+<h4 style="font-weight: 400; line-height: 1.6; font-size: 20px; margin-top: 0; margin-bottom: 0;" class="anchored">
+Properties of Gray Code
+</h4>
+<!-- Body Text -->
+<h4 style="font-weight: 400; line-height: 1.6; font-size: 18px; margin-top: 0; margin-bottom: 0;" class="anchored">
+<br> 1. Current
+</h4>
+<br>
+<p style="font-weight: 400; line-height: 1.6; font-size: 14px; margin-top: 0; margin-bottom: 0;">
+It returns the currently referenced Gray code as a bit string.
+</p>
+<p>Explanation - The <em>.current</em> attribute shows the <strong>Current Gray code value</strong> in the sequence and if a starting value is given, it starts from that value instead of the default (000).</p>
+<div id="53a8de17-8fa2-412f-ba12-33f966cf2664" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy.combinatorics <span class="im">import</span> GrayCode</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>Example_Current_1 <span class="op">=</span> GrayCode(<span class="dv">3</span>, start<span class="op">=</span><span class="st">'100'</span>).current</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(Example_Current_1)</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy.combinatorics <span class="im">import</span> GrayCode</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>Example_Current_2 <span class="op">=</span> GrayCode(<span class="dv">3</span>).current</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(Example_Current_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>100
+000</code></pre>
+</div>
+</div>
+<!-- Body Text -->
+<h4 style="font-weight: 400; line-height: 1.6; font-size: 18px; margin-top: 0; margin-bottom: 0;" class="anchored">
+<br> 2. Property n
+</h4>
+<br>
+<p style="font-weight: 400; line-height: 1.6; font-size: 14px; margin-top: 0; margin-bottom: 0;">
+It returns the dimension of the Gray code.
+</p>
+<p>Explanation - The <em>.n</em> attribute gives the <strong>number of bits</strong> used in the Gray code. In this case, it returns 5, meaning the Gray code sequence is for <strong>5-bit numbers</strong>.</p>
+<div id="b48dcaf0-fb56-40a2-9715-e4a21564034e" class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy.combinatorics <span class="im">import</span> GrayCode</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>Example_Dimension <span class="op">=</span> GrayCode(<span class="dv">5</span>)</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(Example_Dimension.n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>5</code></pre>
+</div>
+</div>
+<!-- Body Text -->
+<h4 style="font-weight: 400; line-height: 1.6; font-size: 18px; margin-top: 0; margin-bottom: 0;" class="anchored">
+<br> 3. Rank
+</h4>
+<br>
+<p style="font-weight: 400; line-height: 1.6; font-size: 14px; margin-top: 0; margin-bottom: 0;">
+It ranks the Gray code.
+</p>
+<p>Explanation - A ranking algorithm finds the position of a combinatorial object in a list of all possible objects, based on a specific order.</p>
+<div id="4b502ada-a0b8-470f-9192-ff7b1fb0297c" class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy.combinatorics <span class="im">import</span> GrayCode</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>Example <span class="op">=</span> GrayCode(<span class="dv">3</span>)</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">list</span>(Example.generate_gray()))</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>Example_Rank_1 <span class="op">=</span> GrayCode(<span class="dv">3</span>, start<span class="op">=</span><span class="st">'100'</span>).rank</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The Rank of '100' is:"</span>, Example_Rank_1)</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>Example_Rank_2 <span class="op">=</span> GrayCode(<span class="dv">3</span>, start<span class="op">=</span><span class="st">'111'</span>).rank</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The Rank of '111' is:"</span>, Example_Rank_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>['000', '001', '011', '010', '110', '111', '101', '100']
+The Rank of '100' is: 7
+The Rank of '111' is: 5</code></pre>
+</div>
+</div>
+<!-- Body Text -->
+<h4 style="font-weight: 400; line-height: 1.6; font-size: 18px; margin-top: 0; margin-bottom: 0;" class="anchored">
+<br> 4. Selections
+</h4>
+<br>
+<p style="font-weight: 400; line-height: 1.6; font-size: 14px; margin-top: 0; margin-bottom: 0;">
+It returns the number of bit vectors in the Gray code.
+</p>
+<p>Explanation - The .selections property tells us how many values exist in the Gray code sequence. For example in n-bit Gray code, this number is always 2^n.</p>
+<div id="57b863bf-f824-4555-a7fe-e798b8e7ea98" class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy.combinatorics <span class="im">import</span> GrayCode</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>Example_Selections_1 <span class="op">=</span> GrayCode(<span class="dv">3</span>)</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(Example_Selections_1.selections)</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>Example_Selections_2 <span class="op">=</span> GrayCode(<span class="dv">5</span>)</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(Example_Selections_2.selections)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>8
+32</code></pre>
+</div>
+</div>
+<center>
+<h4 style="font-size: 21px;" class="anchored">
+Topic 4:- Permutations
+</h4>
+</center>
+<h4 style="font-weight: 400; line-height: 1.6;" class="anchored">
+Permutation is an important subdivision of sympy.combinatorics, they are fundamental concepts in combinatorics, representing the various ways to arrange a set of elements where the order is significant. In SymPy, the Permutation class provides tools to create and manipulate these arrangements.
+</h4>
+<h4 style="font-weight: 400; line-height: 1.6;" class="anchored">
+To define a permutation, you specify a list that indicates the new positions of elements. Let us understand this with an example, Permutation([2, 0, 1]) rearranges elements such that the element at index 0 moves to index 2, the element at index 1 moves to index 0, and the element at index 2 moves to index 1.
+</h4>
+<p>Here’s the code:</p>
+<div id="083aa47d-c7d4-40ca-836a-b24d2ab46771" class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy.combinatorics <span class="im">import</span> Permutation</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> Permutation([<span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">1</span>]) <span class="co"># We define the permutation here</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Permutation is:"</span>, p) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Permutation is: (0 2 1)</code></pre>
+</div>
+</div>
+<p>WHAT DOES THE OUTPUT TELL US? : In this cycle notation, (0 2 1) indicates that index 0 maps to index 2, index 2 maps to index 1, and index 1 maps back to index 0, forming a cycle.</p>
+<h4 style="font-weight: 400; line-height: 1.6; font-size: 18px; margin-top: 0; margin-bottom: 0;" class="anchored">
+How can we apply permuation to a List?
+</h4>
+<p>To apply this permutation to a list of elements [A,B,C] :</p>
+<div id="d0fe4242-260d-44d4-9e3e-a15604d498ec" class="cell" data-execution_count="42">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>original_elements <span class="op">=</span> [<span class="st">'A'</span>, <span class="st">'B'</span>, <span class="st">'C'</span>]</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> Permutation([<span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">1</span>])</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>permuted_elements <span class="op">=</span> [original_elements[i] <span class="cf">for</span> i <span class="kw">in</span> p.array_form] <span class="co">#here the function .array_form just gives us an array of the permutation p</span></span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Original List:"</span>, original_elements)           </span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Permuted List:"</span>, permuted_elements)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Original List: ['A', 'B', 'C']
+Permuted List: ['C', 'A', 'B']</code></pre>
+</div>
+</div>
+<p>This code rearranges the list [‘A’, ‘B’, ‘C’] to [‘B’, ‘C’, ‘A’] based on the permutation [2,0,1] as:</p>
+<p>The element at pos 0 maps to the index 1 , the element at pos 1 maps to the index 2 and the element at the pos 2 maps athe index 0.</p>
+<h4 style="font-weight: 400; line-height: 1.6; font-size: 18px; margin-top: 0; margin-bottom: 0;" class="anchored">
+How can we apply permuation to a List?
+</h4>
+<p>Permutations play a crucial role in cryptography, particularly in the design of encryption algorithms. By permuting bits or blocks of data, encryption schemes can obscure the original information, enhancing security.</p>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/Patel-Devarsh-Dipeshkumar\.github\.io\/PSDV-assignment-4\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
