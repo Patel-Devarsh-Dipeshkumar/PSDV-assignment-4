@@ -1,6 +1,13 @@
 ---
-title: Quarto Template
+title: Group :- C019
 ---
 
-Quarto template Text!
-# This is the home page 
+Members:-
+
+Patel Devarsh Dipeshkumar - 24110245
+Shah Rishabh Analbhai - 24110327
+Soni Kavya Deveshbhai - 24110352
+
+Click on the Blog to view the content....
+
+Happy Learning !!!
