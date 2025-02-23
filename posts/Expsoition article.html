@@ -714,26 +714,26 @@ Cyclic Decomposition: [[0, 2, 1], [3, 4, 5]]</code></pre>
 Topic 5:- Permutation Groups
 </h3>
 </center>
-<div style="font-size: 18px;">
-<pre><code>In SymPy, a permutation group is a collection of permutations (rearrangements) that follow group properties. It is represented using the PermutationGroup class in sympy.combinatorics.</code></pre>
-</div>
+<p style="font-weight: 400; line-height: 1.6; font-size: 18x; margin-top: 0; margin-bottom: 0;">
+In SymPy, a permutation group is a collection of permutations (rearrangements) that follow group properties. It is represented using the PermutationGroup class in sympy.combinatorics.
+</p>
 <div style="font-size: 18px;">
 <pre><code>How to create Permutation Group in SymPy?</code></pre>
 </div>
-<div style="font-size: 18px;">
-<pre><code>So first step is to create permuations: A permutation is represented as a list where indices represent elements, and values represent their new positions after permutation</code></pre>
-</div>
-<div id="304042f8" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy.combinatorics <span class="im">import</span> Permutation, PermutationGroup</span>
-<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Defining permutations</span></span>
-<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>p1 <span class="op">=</span> Permutation([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">0</span>]) <span class="co"># -&gt; (0 1 2)</span></span>
-<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a>p2 <span class="op">=</span> Permutation([<span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">1</span>]) <span class="co"># -&gt; (0 2 1)</span></span>
-<span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb55-7"><a href="#cb55-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a group</span></span>
-<span id="cb55-8"><a href="#cb55-8" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> PermutationGroup([p1, p2])</span>
-<span id="cb55-9"><a href="#cb55-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb55-10"><a href="#cb55-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Permutation Group:"</span>, G)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p style="font-weight: 400; line-height: 1.6; font-size: 18x; margin-top: 0; margin-bottom: 0;">
+So first step is to create permuations: A permutation is represented as a list where indices represent elements, and values represent their new positions after permutation
+</p>
+<div id="304042f8" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy.combinatorics <span class="im">import</span> Permutation, PermutationGroup</span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Defining permutations</span></span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>p1 <span class="op">=</span> Permutation([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">0</span>]) <span class="co"># -&gt; (0 1 2)</span></span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a>p2 <span class="op">=</span> Permutation([<span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">1</span>]) <span class="co"># -&gt; (0 2 1)</span></span>
+<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a group</span></span>
+<span id="cb53-8"><a href="#cb53-8" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> PermutationGroup([p1, p2])</span>
+<span id="cb53-9"><a href="#cb53-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-10"><a href="#cb53-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Permutation Group:"</span>, G)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Permutation Group: PermutationGroup([
     (0 1 2),
@@ -755,7 +755,7 @@ Properties of Permutation Group
 Every group must have an identity element that does nothing.
 </p>
 <div id="65602379" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Identity Element of the Group:"</span>, G.identity)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Identity Element of the Group:"</span>, G.identity)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Identity Element of the Group: (2)</code></pre>
 </div>
@@ -772,7 +772,7 @@ Every group must have an identity element that does nothing.
 The order of a group is the total number of distinct elements it contains.
 </p>
 <div id="33471f93" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Order of the Group:"</span>, G.order())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Order of the Group:"</span>, G.order())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Order of the Group: 3</code></pre>
 </div>
@@ -789,7 +789,7 @@ The order of a group is the total number of distinct elements it contains.
 The .generate() method lists all permutations in the group.
 </p>
 <div id="407f5179" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Elements of the Group:"</span>, <span class="bu">list</span>(G.generate()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Elements of the Group:"</span>, <span class="bu">list</span>(G.generate()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Elements of the Group: [Permutation(2), Permutation(0, 1, 2), Permutation(0, 2, 1)]</code></pre>
 </div>
@@ -806,8 +806,8 @@ The .generate() method lists all permutations in the group.
 The .generate() method lists all permutations in the group.
 </p>
 <div id="38368933" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>p_test <span class="op">=</span> Permutation([<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">0</span>])  </span>
-<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Is p_test in the Group?"</span>, p_test <span class="kw">in</span> G)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>p_test <span class="op">=</span> Permutation([<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">0</span>])  </span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Is p_test in the Group?"</span>, p_test <span class="kw">in</span> G)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Is p_test in the Group? False</code></pre>
 </div>
@@ -828,16 +828,16 @@ Permutations play a crucial role in cryptography, particularly in the design of 
 Example 1) Consider a Simple example where a basic encryption method is used to permute the position of characters according to a pre-defined scheme
 </p>
 <div id="36d9844e" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>message <span class="op">=</span> <span class="st">"HELLO"</span></span>
-<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Permutation pattern according to the indices</span></span>
-<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>permuted_pattern <span class="op">=</span> [<span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">1</span>]  <span class="co"># This is a permutation of indices [0, 1, 2, 3, 4]</span></span>
-<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb68-6"><a href="#cb68-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Applying permutation to encrypt</span></span>
-<span id="cb68-7"><a href="#cb68-7" aria-hidden="true" tabindex="-1"></a>encrypted_message <span class="op">=</span> <span class="st">''</span>.join([message[i] <span class="cf">for</span> i <span class="kw">in</span> permuted_pattern])</span>
-<span id="cb68-8"><a href="#cb68-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb68-9"><a href="#cb68-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Original Message:"</span>, message)          </span>
-<span id="cb68-10"><a href="#cb68-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Encrypted Message:"</span>, encrypted_message)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>message <span class="op">=</span> <span class="st">"HELLO"</span></span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Permutation pattern according to the indices</span></span>
+<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a>permuted_pattern <span class="op">=</span> [<span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">1</span>]  <span class="co"># This is a permutation of indices [0, 1, 2, 3, 4]</span></span>
+<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-6"><a href="#cb66-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Applying permutation to encrypt</span></span>
+<span id="cb66-7"><a href="#cb66-7" aria-hidden="true" tabindex="-1"></a>encrypted_message <span class="op">=</span> <span class="st">''</span>.join([message[i] <span class="cf">for</span> i <span class="kw">in</span> permuted_pattern])</span>
+<span id="cb66-8"><a href="#cb66-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-9"><a href="#cb66-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Original Message:"</span>, message)          </span>
+<span id="cb66-10"><a href="#cb66-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Encrypted Message:"</span>, encrypted_message)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Original Message: HELLO
 Encrypted Message: OLHLE</code></pre>
@@ -877,13 +877,13 @@ A subset of these devices represents the currently active (ON) devices.
 Now the problem is that we need to track which devices are ON at any moment and the system wants to automatically switch to the next possible combination of ON devices.
 </p>
 <div id="3850cb5a" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy.combinatorics <span class="im">import</span> Subset</span>
-<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>all_devices <span class="op">=</span> [<span class="st">'L'</span>, <span class="st">'F'</span>, <span class="st">'T'</span>, <span class="st">'A'</span>]                   <span class="co">#First of all defining the all devices in a list in short form for ease.</span></span>
-<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>current_on_devices <span class="op">=</span> Subset([<span class="st">'T'</span>, <span class="st">'A'</span>], all_devices)   <span class="co"># Define the initial subset (devices that are ON)</span></span>
-<span id="cb70-4"><a href="#cb70-4" aria-hidden="true" tabindex="-1"></a>next_on_devices <span class="op">=</span> current_on_devices.next_binary().subset   <span class="co"># Get the next possible subset in binary order (next device combination)</span></span>
-<span id="cb70-5"><a href="#cb70-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"All Devices:"</span>, all_devices)</span>
-<span id="cb70-6"><a href="#cb70-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Currently ON Devices:"</span>, current_on_devices.subset)</span>
-<span id="cb70-7"><a href="#cb70-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Next ON Device Combination:"</span>, next_on_devices)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy.combinatorics <span class="im">import</span> Subset</span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>all_devices <span class="op">=</span> [<span class="st">'L'</span>, <span class="st">'F'</span>, <span class="st">'T'</span>, <span class="st">'A'</span>]                   <span class="co">#First of all defining the all devices in a list in short form for ease.</span></span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>current_on_devices <span class="op">=</span> Subset([<span class="st">'T'</span>, <span class="st">'A'</span>], all_devices)   <span class="co"># Define the initial subset (devices that are ON)</span></span>
+<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>next_on_devices <span class="op">=</span> current_on_devices.next_binary().subset   <span class="co"># Get the next possible subset in binary order (next device combination)</span></span>
+<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"All Devices:"</span>, all_devices)</span>
+<span id="cb68-6"><a href="#cb68-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Currently ON Devices:"</span>, current_on_devices.subset)</span>
+<span id="cb68-7"><a href="#cb68-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Next ON Device Combination:"</span>, next_on_devices)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>All Devices: ['L', 'F', 'T', 'A']
 Currently ON Devices: ['T', 'A']
