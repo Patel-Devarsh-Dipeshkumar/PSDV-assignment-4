@@ -821,45 +821,23 @@ The .generate() method lists all permutations in the group.
 Use-Cases (Practical Application)
 </h3>
 </center>
-
-
-<style>
-        .large-text {
-            font-size: 18px;
-        }
-    </style>
-
-
-<div style="font-size: 18px;">
-<pre><code>Permutations play a crucial role in cryptography, particularly in the design of encryption algorithms. By permuting bits or blocks of data, encryption schemes can obscure the original information, enhancing security.</code></pre>
-</div>
-
-
-
-
-<style>
-        .large-text {
-            font-size: 18px;
-        }
-    </style>
-
-
-<div style="font-size: 18px;">
-<pre><code>Example 1) Consider a Simple example where a basic encryption method is used to permute the position of characters according to a pre-defined scheme</code></pre>
-</div>
-
-
+<p style="font-weight: 400; line-height: 1.6; font-size: 18x; margin-top: 0; margin-bottom: 0;">
+Permutations play a crucial role in cryptography, particularly in the design of encryption algorithms. By permuting bits or blocks of data, encryption schemes can obscure the original information, enhancing security.
+</p>
+<p style="font-weight: 400; line-height: 1.6; font-size: 18x; margin-top: 0; margin-bottom: 0;">
+Example 1) Consider a Simple example where a basic encryption method is used to permute the position of characters according to a pre-defined scheme
+</p>
 <div id="36d9844e" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>message <span class="op">=</span> <span class="st">"HELLO"</span></span>
-<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Permutation pattern according to the indices</span></span>
-<span id="cb70-4"><a href="#cb70-4" aria-hidden="true" tabindex="-1"></a>permuted_pattern <span class="op">=</span> [<span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">1</span>]  <span class="co"># This is a permutation of indices [0, 1, 2, 3, 4]</span></span>
-<span id="cb70-5"><a href="#cb70-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb70-6"><a href="#cb70-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Applying permutation to encrypt</span></span>
-<span id="cb70-7"><a href="#cb70-7" aria-hidden="true" tabindex="-1"></a>encrypted_message <span class="op">=</span> <span class="st">''</span>.join([message[i] <span class="cf">for</span> i <span class="kw">in</span> permuted_pattern])</span>
-<span id="cb70-8"><a href="#cb70-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb70-9"><a href="#cb70-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Original Message:"</span>, message)          </span>
-<span id="cb70-10"><a href="#cb70-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Encrypted Message:"</span>, encrypted_message)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>message <span class="op">=</span> <span class="st">"HELLO"</span></span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Permutation pattern according to the indices</span></span>
+<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>permuted_pattern <span class="op">=</span> [<span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">1</span>]  <span class="co"># This is a permutation of indices [0, 1, 2, 3, 4]</span></span>
+<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-6"><a href="#cb68-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Applying permutation to encrypt</span></span>
+<span id="cb68-7"><a href="#cb68-7" aria-hidden="true" tabindex="-1"></a>encrypted_message <span class="op">=</span> <span class="st">''</span>.join([message[i] <span class="cf">for</span> i <span class="kw">in</span> permuted_pattern])</span>
+<span id="cb68-8"><a href="#cb68-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-9"><a href="#cb68-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Original Message:"</span>, message)          </span>
+<span id="cb68-10"><a href="#cb68-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Encrypted Message:"</span>, encrypted_message)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Original Message: HELLO
 Encrypted Message: OLHLE</code></pre>
@@ -875,7 +853,7 @@ Encrypted Message: OLHLE</code></pre>
 Another practical example which we could consider is:-
 </h5>
 <div style="font-size: 18px;">
-<pre><code>    Example 2) Imagine a smart home system with 4 devices that can be turned ON or OFF:
+<pre><code>Example 2) Imagine a smart home system with 4 devices that can be turned ON or OFF:
 &lt;br&gt;&lt;br&gt;
 1. Lights ('L')&lt;br&gt;
 2. Fan ('F')&lt;br&gt;
@@ -888,13 +866,13 @@ A subset of these devices represents the currently active (ON) devices.</code></
 <pre><code>Now the problem is that we need to track which devices are ON at any moment and the system wants to automatically switch to the next possible combination of ON devices.</code></pre>
 </div>
 <div id="3850cb5a" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy.combinatorics <span class="im">import</span> Subset</span>
-<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>all_devices <span class="op">=</span> [<span class="st">'L'</span>, <span class="st">'F'</span>, <span class="st">'T'</span>, <span class="st">'A'</span>]                   <span class="co">#First of all defining the all devices in a list in short form for ease.</span></span>
-<span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a>current_on_devices <span class="op">=</span> Subset([<span class="st">'T'</span>, <span class="st">'A'</span>], all_devices)   <span class="co"># Define the initial subset (devices that are ON)</span></span>
-<span id="cb76-4"><a href="#cb76-4" aria-hidden="true" tabindex="-1"></a>next_on_devices <span class="op">=</span> current_on_devices.next_binary().subset   <span class="co"># Get the next possible subset in binary order (next device combination)</span></span>
-<span id="cb76-5"><a href="#cb76-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"All Devices:"</span>, all_devices)</span>
-<span id="cb76-6"><a href="#cb76-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Currently ON Devices:"</span>, current_on_devices.subset)</span>
-<span id="cb76-7"><a href="#cb76-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Next ON Device Combination:"</span>, next_on_devices)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy.combinatorics <span class="im">import</span> Subset</span>
+<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>all_devices <span class="op">=</span> [<span class="st">'L'</span>, <span class="st">'F'</span>, <span class="st">'T'</span>, <span class="st">'A'</span>]                   <span class="co">#First of all defining the all devices in a list in short form for ease.</span></span>
+<span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a>current_on_devices <span class="op">=</span> Subset([<span class="st">'T'</span>, <span class="st">'A'</span>], all_devices)   <span class="co"># Define the initial subset (devices that are ON)</span></span>
+<span id="cb74-4"><a href="#cb74-4" aria-hidden="true" tabindex="-1"></a>next_on_devices <span class="op">=</span> current_on_devices.next_binary().subset   <span class="co"># Get the next possible subset in binary order (next device combination)</span></span>
+<span id="cb74-5"><a href="#cb74-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"All Devices:"</span>, all_devices)</span>
+<span id="cb74-6"><a href="#cb74-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Currently ON Devices:"</span>, current_on_devices.subset)</span>
+<span id="cb74-7"><a href="#cb74-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Next ON Device Combination:"</span>, next_on_devices)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>All Devices: ['L', 'F', 'T', 'A']
 Currently ON Devices: ['T', 'A']
