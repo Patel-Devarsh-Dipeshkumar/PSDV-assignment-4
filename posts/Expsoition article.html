@@ -287,7 +287,9 @@ RGS Representation: (0, 0, 0, 1, 1, 2)</code></pre>
 <p style="font-weight: 400; line-height: 1.6; font-size: 18px; margin-top: 0; margin-bottom: 0;">
 It returns partition as a sorted list of lists.
 </p>
-<p>Explanation - A Partition in SymPy divides a set into disjoint, non-empty subsets (blocks) whose union equals the original set. The <em>.partition</em> attribute returns these blocks as a list of lists, representing the partition structure.</p>
+<p style="font-weight: 400; line-height: 1.6; font-size: 18px; text-align: justify;">
+Explanation - A Partition in SymPy divides a set into disjoint, non-empty subsets (blocks) whose union equals the original set. The <code>.partition</code> attribute returns these blocks as a list of lists, representing the partition structure.
+</p>
 <div id="1ca11f38-077f-4217-98b3-362c8ccd1e25" class="cell" data-outputid="76475f68-c9a5-4db2-8f7f-35d76ae474aa" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy.combinatorics <span class="im">import</span> Partition</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>Example_Partition <span class="op">=</span> Partition([<span class="dv">4</span>], [<span class="dv">2</span>, <span class="dv">5</span>]).partition</span>
@@ -304,7 +306,9 @@ It returns partition as a sorted list of lists.
 <p style="font-weight: 400; line-height: 1.6; font-size: 18px; margin-top: 0; margin-bottom: 0;">
 It gets the rank of a partition.
 </p>
-<p>Explanation - The <em>.rank</em> attribute of a Partition in SymPy gives a unique integer representing the partition’s position in the lexicographic ordering of all partitions of the same set.</p>
+<p style="font-weight: 400; line-height: 1.6; font-size: 18px; text-align: justify;">
+Explanation - The <code>.rank</code> attribute of a Partition in SymPy gives a unique integer representing the partition’s position in the lexicographic ordering of all partitions of the same set.
+</p>
 <div id="8d31a00b-9b0a-4897-b120-603f80e2fd89" class="cell" data-outputid="69a76206-721a-4335-ee73-05fc62119d61" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy.combinatorics <span class="im">import</span> Partition</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>Example_Rank <span class="op">=</span> Partition([<span class="dv">1</span>, <span class="dv">2</span>], [<span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>])</span>
@@ -321,7 +325,9 @@ It gets the rank of a partition.
 <p style="font-weight: 400; line-height: 1.6; font-size: 18px; margin-top: 0; margin-bottom: 0;">
 It computes the conjugate partition of itself.
 </p>
-<p>Explanation - In SymPy, the <em>.conjugate</em> of an IntegerPartition interchange the rows and columns in its Ferrers diagram representation, transforming the partition into another valid partition.</p>
+<p style="font-weight: 400; line-height: 1.6; font-size: 18px; text-align: justify;">
+Explanation - In SymPy, the <code>.conjugate</code> of an IntegerPartition interchanges the rows and columns in its Ferrers diagram representation, transforming the partition into another valid partition.
+</p>
 <div id="f64ef262-3bfc-4e5c-a0ad-1fbcdff999b6" class="cell" data-outputid="5b46f089-6003-4709-da33-7645f884e0ea" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy.combinatorics.partitions <span class="im">import</span> IntegerPartition</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>Example_Conjugate <span class="op">=</span> IntegerPartition([<span class="dv">6</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>])</span>
@@ -338,7 +344,9 @@ Topic 2:- Subsets
 <h4 style="font-weight: 400; line-height: 1.6;" class="anchored">
 In simple words, it represents a basic subset object.
 </h4>
-<p>Explanation - There are two main ways to create subsets: <strong>binary enumeration</strong> and <strong>lexicographic enumeration</strong>. In SymPy, the <em>Subset</em> class needs two inputs: the first is the subset we start with, and the second is the larger set it comes from.</p>
+<p style="font-weight: 400; line-height: 1.6; font-size: 18px; text-align: justify;">
+Explanation - There are two main ways to create subsets: <strong>binary enumeration</strong> and <strong>lexicographic enumeration</strong>. In SymPy, the <code>Subset</code> class needs two inputs: the first is the subset we start with, and the second is the larger set it comes from.
+</p>
 <p>Some basic Examples of Subset</p>
 <div id="c58404f6-bf46-4568-bb0b-c62aa1809715" class="cell" data-outputid="5d492b44-0f23-4277-f925-226ff75a4d29" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy.combinatorics <span class="im">import</span> Subset</span>
@@ -360,7 +368,9 @@ Properties of Subsets
 <p style="font-weight: 400; line-height: 1.6; font-size: 18px; margin-top: 0; margin-bottom: 0;">
 It returns the number of all possible subsets.
 </p>
-<p>Explanation - The <em>.cardinality</em> property in SymPy returns the <strong>total number of possible subsets</strong> of a given set. Since a set with <strong>n elements</strong> has <strong>(2^n) subsets</strong>, this property calculates and returns that value.</p>
+<p style="font-weight: 400; line-height: 1.6; font-size: 18px; text-align: justify;">
+Explanation - The <code>.cardinality</code> property in SymPy returns the <strong>total number of possible subsets</strong> of a given set. Since a set with <strong>n elements</strong> has <strong>(2^n)</strong> subsets, this property calculates and returns that value.
+</p>
 <div id="5cc7a39a-7da1-452e-a771-7657189c55dd" class="cell" data-outputid="fde0d6cc-b522-43b9-878e-ee0f089a8406" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy.combinatorics <span class="im">import</span> Subset</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>Example_Cardinality <span class="op">=</span> Subset([<span class="st">'c'</span>, <span class="st">'d'</span>], [<span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'c'</span>, <span class="st">'d'</span>])</span>
@@ -394,7 +404,8 @@ It gets the subset represented by the current instance.
 <p style="font-weight: 400; line-height: 1.6; font-size: 18px; margin-top: 0; margin-bottom: 0;">
 It gets the superset of the subset.
 </p>
-<p>Explanation - The <em>.superset</em> property in SymPy returns the <strong>original (universal) set</strong> from which subsets are created. It shows the complete set that contains all possible elements for forming subsets.</p>
+<p style="font-weight: 400; line-height: 1.6; font-size: 18px; text-align: justify;">
+</p><p>Explanation - The <code>.superset</code> property in SymPy returns the <strong>original (universal) set</strong> from which subsets are created. It shows the complete set that contains all possible elements for forming subsets</p>
 <div id="c0849dc6-8e1e-45d7-a3a8-3225c5f0f4db" class="cell" data-outputid="6194a3a4-cbc0-4ebe-ef2f-adc44ed34958" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy.combinatorics <span class="im">import</span> Subset</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>Example_Superset <span class="op">=</span> Subset([<span class="st">'c'</span>, <span class="st">'d'</span>], [<span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'c'</span>, <span class="st">'d'</span>])</span>
@@ -428,7 +439,9 @@ It gets the size of the subset.
 <p style="font-weight: 400; line-height: 1.6; font-size: 18px; margin-top: 0; margin-bottom: 0;">
 It returns the size of the superset.
 </p>
-<p>Explanation - The <em>.superset_size</em> property in SymPy returns the <strong>number of elements in the superset</strong>. It simply gives the total count of elements in the original (universal) set from which subsets are formed.</p>
+<p style="font-weight: 400; line-height: 1.6; font-size: 18px; text-align: justify;">
+Explanation - The <code>.superset_size</code> property in SymPy returns the <strong>number of elements in the superset</strong>. It simply gives the total count of elements in the original (universal) set from which subsets are formed.
+</p>
 <div id="17a3570f-e401-43ad-838a-28525cdb5aea" class="cell" data-outputid="eb041317-22f7-4dbb-ac13-bfc16b0e1d53" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy.combinatorics <span class="im">import</span> Subset</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>Example_Superset_size <span class="op">=</span> Subset([<span class="st">'c'</span>, <span class="st">'d'</span>], [<span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'c'</span>, <span class="st">'d'</span>])</span>
@@ -442,7 +455,7 @@ It returns the size of the superset.
 Topic 3:- Gray Code
 </h4>
 </center>
-<h4 style="font-weight: 400; line-height: 1.6;" class="anchored">
+<h4 style="font-weight: 400; line-height: 1.6; text-align: justify;" class="anchored">
 A Gray code is a way of listing all possible subsets of a set so that each new subset differs from the previous one by adding or removing just one element. This helps in efficient subset generation and has applications in computing and statistics.
 </h4>
 <!-- Title -->
@@ -458,7 +471,9 @@ Properties of Gray Code
 <p style="font-weight: 400; line-height: 1.6; font-size: 18px; margin-top: 0; margin-bottom: 0;">
 It returns the currently referenced Gray code as a bit string.
 </p>
-<p>Explanation - The <em>.current</em> attribute shows the <strong>Current Gray code value</strong> in the sequence and if a starting value is given, it starts from that value instead of the default (000).</p>
+<p style="font-weight: 400; line-height: 1.6; font-size: 18px; text-align: justify;">
+Explanation - The <code>.current</code> attribute shows the <strong>Current Gray code value</strong> in the sequence, and if a starting value is given, it starts from that value instead of the default (000).
+</p>
 <div id="53a8de17-8fa2-412f-ba12-33f966cf2664" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy.combinatorics <span class="im">import</span> GrayCode</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>Example_Current_1 <span class="op">=</span> GrayCode(<span class="dv">3</span>, start<span class="op">=</span><span class="st">'100'</span>).current</span>
@@ -479,7 +494,9 @@ It returns the currently referenced Gray code as a bit string.
 <p style="font-weight: 400; line-height: 1.6; font-size: 18px; margin-top: 0; margin-bottom: 0;">
 It returns the dimension of the Gray code.
 </p>
-<p>Explanation - The <em>.n</em> attribute gives the <strong>number of bits</strong> used in the Gray code. In this case, it returns 5, meaning the Gray code sequence is for <strong>5-bit numbers</strong>.</p>
+<p style="font-weight: 400; line-height: 1.6; font-size: 18px; text-align: justify;">
+Explanation - The <code>.current</code> attribute shows the <strong>Current Gray code value</strong> in the sequence, and if a starting value is given, it starts from that value instead of the default (000).
+</p>
 <div id="b48dcaf0-fb56-40a2-9715-e4a21564034e" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy.combinatorics <span class="im">import</span> GrayCode</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>Example_Dimension <span class="op">=</span> GrayCode(<span class="dv">5</span>)</span>
@@ -536,14 +553,14 @@ It returns the number of bit vectors in the Gray code.
 Topic 4:- Permutations
 </h4>
 </center>
-<h4 style="font-weight: 400; line-height: 1.6;" class="anchored">
+<h4 style="font-weight: 400; line-height: 1.6; text-align: justify;" class="anchored">
 Permutation is an important subdivision of sympy.combinatorics, they are fundamental concepts in combinatorics, representing the various ways to arrange a set of elements where the order is significant. In SymPy, the Permutation class provides tools to create and manipulate these arrangements.
 </h4>
-<h4 style="font-weight: 400; line-height: 1.6;" class="anchored">
-To define a permutation, you specify a list that indicates the new positions of elements. Let us understand this with an example, Permutation([2, 0, 1]) rearranges elements such that the element at index 0 moves to index 2, the element at index 1 moves to index 0, and the element at index 2 moves to index 1.
+<h4 style="font-weight: 400; line-height: 1.6; text-align: justify;" class="anchored">
+To define a permutation, you specify a list that indicates the new positions of elements. Let us understand this with an example: <code>Permutation([2, 0, 1])</code> rearranges elements such that the element at index 0 moves to index 2, the element at index 1 moves to index 0, and the element at index 2 moves to index 1.
 </h4>
-<p>Here’s the code:</p>
-<div id="083aa47d-c7d4-40ca-836a-b24d2ab46771" class="cell" data-execution_count="38">
+<p style="font-weight: 400; line-height: 1.6; font-size: 18px; text-align: justify;">
+</p><div id="083aa47d-c7d4-40ca-836a-b24d2ab46771" class="cell" data-execution_count="38">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy.combinatorics <span class="im">import</span> Permutation</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> Permutation([<span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">1</span>]) <span class="co"># We define the permutation here</span></span>
